@@ -24,8 +24,8 @@ const Categories = () => {
     try {
       //const response = await fetch('http://localhost:8080/categoryTree'); // Replace with your API endpoint
       //const data = await response.json();
-      const data = [{title:'Node1',value:'0-0',children:[{title:'Child Node1',value: '0-0-1',},{title:'Child Node2',value:'0-0-2',},],},{title:'Node2',value:'0-1',},];
-      dispatch({ type: 'SET_CATEGORIES', payload: data });
+      const data = [{name:'Node1',categoryId:'0-0',children:[{name:'Child Node1',categoryId: '0-0-1',},{name:'Child Node2',categoryId:'0-0-2',},],},{name:'Node2',categoryId:'0-1',},];
+dispatch({ type: 'SET_CATEGORIES', payload: data });
     } catch (error) {
       console.error('Error fetching categories:', error);
     }
@@ -41,6 +41,7 @@ const Categories = () => {
         style={{ width: '100%' }}
         value={selectedCategory}
         dropdownStyle={{ maxHeight: 400, overflow: 'auto' }}
+        fieldNames={{label: "name", value:"categoryId"}}
         treeData={categories}
         treeNodeFilterProp="name"
         placeholder="Select a category"

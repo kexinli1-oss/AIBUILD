@@ -40,7 +40,8 @@ function* fetchCategoriesAsync() {
   
     // Transform the categories
     const transformedCategories = transformCategories(categories);
-    yield put(setCategories(transformedCategories));
+    //yield put(setCategories(transformedCategories));
+    yield put(setCategories(categories));
   } catch (error) {
     console.error('Error fetching categories:', error);
   }
