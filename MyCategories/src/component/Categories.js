@@ -20,11 +20,18 @@ const Categories = () => {
     dispatch(fetchCategories());
   };
 
-  const fetchCategoriesWithCustomHook = () => {
-    // The useCategories hook already dispatches the action
+  const fetchCategoriesWithCustomHook = async () => {
+    try {
+      //const response = await fetch('http://localhost:8080/categoryTree'); // Replace with your API endpoint
+      //const data = await response.json();
+      const data = [{title:'Node1',value:'0-0',children:[{title:'Child Node1',value: '0-0-1',},{title:'Child Node2',value:'0-0-2',},],},{title:'Node2',value:'0-1',},];
+      dispatch({ type: 'SET_CATEGORIES', payload: data });
+    } catch (error) {
+      console.error('Error fetching categories:', error);
+    }
   };
 
-   return (
+  return (
     <div>
       <h1>Category Selection</h1>
       <Button onClick={fetchCategoriesWithSaga}>Fetch Categories with Saga</Button>
