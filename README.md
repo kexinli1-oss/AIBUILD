@@ -1,30 +1,35 @@
 ## Coding Test Solution
 This repository contains the solution to a coding test, demonstrating proficiency in Javascript (Node.js). The project comprises of three major components:
 
-1. A server that converts and delivers category data in a tree structure.
+1. A server that converts and delivers category data in a tree structure and a client that fetches the data.
 2. A script to check internet connection quality based on the response time from a given URI.
 3. A React Category Selection App with Redux
 
 # Files and Descriptions:
 
-## 1. server.js:
-A server using Express.js.
-Reads data from a categories.json file and converts a flat category array into a tree structure.
-Has an endpoint /categoryTree that returns the tree-structured category data.
-## 2. checkInternetConnection.js:
+## 1. checkInternetConnection.js:
 Checks the quality of an internet connection using Node's https module.
 Tries to get a response from a specified URI (https://www.google.com by default).
 Assesses the quality of the connection as "good", "fine", or "terrible" based on the response time.
 
+## 2. server.js,fetchCategories.js:
+A server using Express.js.
+Reads data from a categories.json file and converts a flat category array into a tree structure.
+Has an endpoint /categoryTree that returns the tree-structured category data.
+fetchCategories.js
+
 # Usage:
 
-## 1. Server (server.js):
-Run: node server.js
-Access the /categoryTree endpoint via a web browser or tools like Postman to fetch the tree-structured category data.
-
-## 2. Internet Connection Checker (checkInternetConnection.js):
-Run: node checkInternetConnection.js
+## 1. Internet Connection Checker (checkInternetConnection.js):
+Run: node checkInternetConnection.js.
 Check the console for the internet connection quality assessment.
+
+## 2. Server (server.js), client (fetchCategories.js):
+Run: node server.js.
+Run a server that provide the data. 
+
+Run: node fetchCategories.js
+Access the /categoryTree endpoint via a web browser or tools like Postman to fetch the tree-structured category data.
 
 ## React Category Selection App with Redux
 
@@ -39,10 +44,10 @@ The project is structured as follows:
 
 - **src**: Contains the source code for the React application.
   - **actions.js**: Defines Redux actions to fetch and set categories.
-  - **reducers.js**: Defines a Redux reducer to manage the application's state.
+  - **categoriesReducers.js**: Defines a Redux reducer to manage the application's state.
   - **sagas.js**: Contains Redux Saga code to handle asynchronous data fetching.
   - **useCategories.js**: A custom React Hook for fetching and storing categories.
-  - **App.js**: The main React component that displays the TreeSelect and handles category selection.
+  - **Categories.js**: The main React component that displays the TreeSelect and handles category selection.
 - **public**: Contains public assets like HTML and CSS files.
 - **index.js**: The entry point of the React application.
 - **store.js**: Sets up the Redux store and integrates Redux Saga.
