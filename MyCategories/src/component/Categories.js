@@ -7,6 +7,7 @@ import { fetchCategories } from '../actions/actions';
 import 'antd/dist/reset.css';
 
 const Categories = () => {
+  alert("LchStart");
   const categories = useCategories();
   const [selectedCategory, setSelectedCategory] = useState(null);
   const dispatch = useDispatch();
